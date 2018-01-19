@@ -92,4 +92,5 @@ public class LonelyTwitterActivity extends Activity {
 			e.printStackTrace();
 		}
 	}
+
 }
