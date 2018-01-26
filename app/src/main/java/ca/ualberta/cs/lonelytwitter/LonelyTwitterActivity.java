@@ -37,7 +37,7 @@ public class LonelyTwitterActivity extends Activity {
 	
 	/** Called when the activity is first created. */
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Log.i("LifeCycle ---->", "onCreate is called");
 		setContentView(R.layout.main);
@@ -45,8 +45,15 @@ public class LonelyTwitterActivity extends Activity {
 		bodyText = (EditText) findViewById(R.id.body);
 		Button saveButton = (Button) findViewById(R.id.save);
 		oldTweetsList = (ListView) findViewById(R.id.oldTweetsList);
+		Button clearButton = (Button) findViewById(R.id.clear);
 
 
+		clearButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View view) {
+				adapter.clear();
+				saveInFile();//clear and save to clear the disk
+			}
+		});
 
 		saveButton.setOnClickListener(new View.OnClickListener() {
 
