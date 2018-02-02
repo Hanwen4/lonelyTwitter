@@ -3,13 +3,19 @@ package ca.ualberta.cs.lonelytwitter;
 import java.util.Date;
 
 /**
- * Created by dezfuli on 1/16/18.
+ * Represents a tweet
+ * @author dezfuli
+ * @version 1.0
  */
 
 public abstract class Tweet implements Tweetable {
     private String message;
     private Date date;
 
+    /**
+     * Constructs a tweet instance using the given message
+     * @param message the message of the tweet
+     */
     Tweet(String message){
 
         this.message = message;
@@ -26,6 +32,13 @@ public abstract class Tweet implements Tweetable {
         return message;
     }
 
+    /**
+     * set the message to the tweet
+     * @param message the new message of the tweet
+     * @throws TweetTooLongException thrown when the message id over 140 characters
+     * @see ImportantTweet
+     * @see NormalTweet
+     */
     public void setMessage(String message) throws TweetTooLongException{
         if (message.length() < 140){
             this.message = message;

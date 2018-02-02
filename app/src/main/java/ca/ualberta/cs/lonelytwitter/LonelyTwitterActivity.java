@@ -1,3 +1,12 @@
+/*
+ * Copyright © 2018 Hanwen Yang, CMPUT301, University of Alberta - All Rights Reserved.
+ * You may use, distribute ot modify this code under terms and conditions of Code of Student Behavior at
+ *  University of Alberta.
+ * You can find a copy of the license in this project, otherwise please contact at
+ *   hyang4@ualberta.ca
+ * /
+ */
+
 package ca.ualberta.cs.lonelytwitter;
 
 import java.io.BufferedReader;
@@ -9,7 +18,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-import java.util.Date;
 
 import android.app.Activity;
 import android.content.Context;
@@ -20,12 +28,17 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 import com.google.gson.Gson;
 import java.lang.reflect.Type;
 import java.util.List;
 import com.google.gson.reflect.TypeToken;
 
+
+/**
+ * This is the main activity, get informations and store them
+ * @author dezfuli
+ * @version 1.0
+ */
 public class LonelyTwitterActivity extends Activity {
 
 	private static final String FILENAME = "file.sav";
@@ -67,12 +80,13 @@ public class LonelyTwitterActivity extends Activity {
 				adapter.notifyDataSetChanged();
 
 				saveInFile();
-				finish();
-
 			}
 		});
 	}
 
+	/**
+	 * set up an adapter for listView
+	 */
 	@Override
 	protected void onStart() {
 
@@ -87,6 +101,9 @@ public class LonelyTwitterActivity extends Activity {
 
 	}
 
+	/**
+	 * load informations that had been stored
+	 */
 	private void loadFromFile() {
 		try {
 			FileInputStream fis = openFileInput(FILENAME);
@@ -112,7 +129,10 @@ public class LonelyTwitterActivity extends Activity {
 //			e.printStackTrace();
 //		}
 	}
-	
+
+	/**
+	 * Save data and infos, for saving purpose
+	 */
 	private void saveInFile() {
 		try {
 			FileOutputStream fos = openFileOutput(FILENAME,

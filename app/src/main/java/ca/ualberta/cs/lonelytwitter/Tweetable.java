@@ -5,6 +5,9 @@ package ca.ualberta.cs.lonelytwitter;
  */
 import java.util.Date;
 
+/**
+ * Interface to determine if the tweet is tweetable or not
+ */
 public interface Tweetable {
     public String getMessage();
     public Date getDate();
